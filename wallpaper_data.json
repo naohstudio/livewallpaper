@@ -1,0 +1,912 @@
+{
+  "banner_config": [
+    {
+      "categoryId": 4,
+      "sort": 0,
+      "url": "banner/christmas.webp"
+    },
+    {
+      "categoryId": 15,
+      "sort": 1,
+      "url": "banner/new_year.webp"
+    },
+    {
+      "categoryId": 5,
+      "sort": 2,
+      "url": "banner/eye.webp"
+    }
+  ],
+  "category_config": [
+    {
+      "id": 4,
+      "nameId": "Christmas",
+      "sort": 0
+    },
+    {
+      "id": 15,
+      "nameId": "New Year",
+      "sort": 1
+    },
+    {
+      "id": 5,
+      "nameId": "Eye",
+      "sort": 2
+    },
+    {
+      "id": 1,
+      "nameId": "Animal",
+      "sort": 3
+    },
+    {
+      "id": 2,
+      "nameId": "Anime",
+      "sort": 4
+    },
+    {
+      "id": 3,
+      "nameId": "Car",
+      "sort": 5
+    },
+    {
+      "id": 11,
+      "nameId": "NEON",
+      "sort": 11
+    },
+    {
+      "id": 6,
+      "nameId": "Gundam",
+      "sort": 99
+    },
+    {
+      "id": 7,
+      "nameId": "Infinite",
+      "sort": 99
+    },
+    {
+      "id": 8,
+      "nameId": "LED",
+      "sort": 99
+    },
+    {
+      "id": 9,
+      "nameId": "Man",
+      "sort": 99
+    },
+    {
+      "id": 10,
+      "nameId": "Myth",
+      "sort": 99
+    },
+    {
+      "id": 12,
+      "nameId": "Space",
+      "sort": 99
+    },
+    {
+      "id": 13,
+      "nameId": "Sport",
+      "sort": 99
+    },
+    {
+      "id": 14,
+      "nameId": "Transformer",
+      "sort": 99
+    }
+  ],
+  "wallpaper_config": {
+    "1": [
+      {
+        "categoryId": 1,
+        "id": 1001,
+        "isDark": false,
+        "isPremium": true,
+        "thumb": "thumb/animal_01.webp",
+        "url": "video/animal_01.mp4"
+      },
+      {
+        "categoryId": 1,
+        "id": 1002,
+        "isDark": false,
+        "isPremium": false,
+        "thumb": "thumb/animal_02.webp",
+        "url": "video/animal_02.mp4"
+      },
+      {
+        "categoryId": 1,
+        "id": 1003,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/animal_03.webp",
+        "url": "video/animal_03.mp4"
+      },
+      {
+        "categoryId": 1,
+        "id": 1004,
+        "isDark": false,
+        "isPremium": true,
+        "thumb": "thumb/animal_04.webp",
+        "url": "video/animal_04.mp4"
+      },
+      {
+        "categoryId": 1,
+        "id": 1005,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/animal_05.webp",
+        "url": "video/animal_05.mp4"
+      },
+      {
+        "categoryId": 1,
+        "id": 1006,
+        "isDark": false,
+        "isPremium": false,
+        "thumb": "thumb/animal_06.webp",
+        "url": "video/animal_06.mp4"
+      },
+      {
+        "categoryId": 1,
+        "id": 1007,
+        "isDark": false,
+        "isPremium": false,
+        "thumb": "thumb/animal_07.webp",
+        "url": "video/animal_07.mp4"
+      }
+    ],
+    "2": [
+      {
+        "categoryId": 2,
+        "id": 2001,
+        "isDark": true,
+        "isPremium": true,
+        "thumb": "thumb/anime_01.webp",
+        "url": "video/anime_01.mp4"
+      },
+      {
+        "categoryId": 2,
+        "id": 2002,
+        "isDark": true,
+        "isPremium": true,
+        "thumb": "thumb/anime_02.webp",
+        "url": "video/anime_02.mp4"
+      },
+      {
+        "categoryId": 2,
+        "id": 2003,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/anime_03.webp",
+        "url": "video/anime_03.mp4"
+      },
+      {
+        "categoryId": 2,
+        "id": 2004,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/anime_04.webp",
+        "url": "video/anime_04.mp4"
+      },
+      {
+        "categoryId": 2,
+        "id": 2005,
+        "isDark": true,
+        "isPremium": true,
+        "thumb": "thumb/anime_05.webp",
+        "url": "video/anime_05.mp4"
+      },
+      {
+        "categoryId": 2,
+        "id": 2006,
+        "isDark": true,
+        "isPremium": true,
+        "thumb": "thumb/anime_06.webp",
+        "url": "video/anime_06.mp4"
+      },
+      {
+        "categoryId": 2,
+        "id": 2007,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/anime_07.webp",
+        "url": "video/anime_07.mp4"
+      },
+      {
+        "categoryId": 2,
+        "id": 2008,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/anime_08.webp",
+        "url": "video/anime_08.mp4"
+      },
+      {
+        "categoryId": 2,
+        "id": 2009,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/anime_09.webp",
+        "url": "video/anime_09.mp4"
+      },
+      {
+        "categoryId": 2,
+        "id": 2010,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/anime_10.webp",
+        "url": "video/anime_10.mp4"
+      },
+      {
+        "categoryId": 2,
+        "id": 2011,
+        "isDark": true,
+        "isPremium": true,
+        "thumb": "thumb/anime_11.webp",
+        "url": "video/anime_11.mp4"
+      }
+    ],
+    "3": [
+      {
+        "categoryId": 3,
+        "id": 3001,
+        "isDark": true,
+        "isPremium": true,
+        "thumb": "thumb/car_01.webp",
+        "url": "video/car_01.mp4"
+      },
+      {
+        "categoryId": 3,
+        "id": 3002,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/car_02.webp",
+        "url": "video/car_02.mp4"
+      },
+      {
+        "categoryId": 3,
+        "id": 3003,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/car_03.webp",
+        "url": "video/car_03.mp4"
+      },
+      {
+        "categoryId": 3,
+        "id": 3004,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/car_04.webp",
+        "url": "video/car_04.mp4"
+      }
+    ],
+    "4": [
+      {
+        "categoryId": 4,
+        "id": 4001,
+        "isDark": false,
+        "isPremium": false,
+        "thumb": "thumb/christmas_01.webp",
+        "url": "video/christmas_01.mp4"
+      },
+      {
+        "categoryId": 4,
+        "id": 4002,
+        "isDark": false,
+        "isPremium": false,
+        "thumb": "thumb/christmas_02.webp",
+        "url": "video/christmas_02.mp4"
+      },
+      {
+        "categoryId": 4,
+        "id": 4003,
+        "isDark": true,
+        "isPremium": true,
+        "thumb": "thumb/christmas_03.webp",
+        "url": "video/christmas_03.mp4"
+      },
+      {
+        "categoryId": 4,
+        "id": 4004,
+        "isDark": false,
+        "isPremium": false,
+        "thumb": "thumb/christmas_04.webp",
+        "url": "video/christmas_04.mp4"
+      },
+      {
+        "categoryId": 4,
+        "id": 4005,
+        "isDark": false,
+        "isPremium": true,
+        "thumb": "thumb/christmas_05.webp",
+        "url": "video/christmas_05.mp4"
+      },
+      {
+        "categoryId": 4,
+        "id": 4006,
+        "isDark": false,
+        "isPremium": false,
+        "thumb": "thumb/christmas_06.webp",
+        "url": "video/christmas_06.mp4"
+      },
+      {
+        "categoryId": 4,
+        "id": 4007,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/christmas_07.webp",
+        "url": "video/christmas_07.mp4"
+      },
+      {
+        "categoryId": 4,
+        "id": 4008,
+        "isDark": false,
+        "isPremium": false,
+        "thumb": "thumb/christmas_08.webp",
+        "url": "video/christmas_08.mp4"
+      },
+      {
+        "categoryId": 4,
+        "id": 4009,
+        "isDark": true,
+        "isPremium": true,
+        "thumb": "thumb/christmas_09.webp",
+        "url": "video/christmas_09.mp4"
+      },
+      {
+        "categoryId": 4,
+        "id": 4010,
+        "isDark": true,
+        "isPremium": true,
+        "thumb": "thumb/christmas_10.webp",
+        "url": "video/christmas_10.mp4"
+      },
+      {
+        "categoryId": 4,
+        "id": 4011,
+        "isDark": true,
+        "isPremium": true,
+        "thumb": "thumb/christmas_11.webp",
+        "url": "video/christmas_11.mp4"
+      },
+      {
+        "categoryId": 4,
+        "id": 4012,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/christmas_12.webp",
+        "url": "video/christmas_12.mp4"
+      },
+      {
+        "categoryId": 4,
+        "id": 4013,
+        "isDark": false,
+        "isPremium": true,
+        "thumb": "thumb/christmas_13.webp",
+        "url": "video/christmas_13.mp4"
+      },
+      {
+        "categoryId": 4,
+        "id": 4014,
+        "isDark": true,
+        "isPremium": true,
+        "thumb": "thumb/christmas_14.webp",
+        "url": "video/christmas_14.mp4"
+      },
+      {
+        "categoryId": 4,
+        "id": 4015,
+        "isDark": true,
+        "isPremium": true,
+        "thumb": "thumb/christmas_15.webp",
+        "url": "video/christmas_15.mp4"
+      }
+    ],
+    "5": [
+      {
+        "categoryId": 5,
+        "id": 5001,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/eye_01.webp",
+        "url": "video/eye_01.mp4"
+      },
+      {
+        "categoryId": 5,
+        "id": 5002,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/eye_02.webp",
+        "url": "video/eye_02.mp4"
+      },
+      {
+        "categoryId": 5,
+        "id": 5003,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/eye_03.webp",
+        "url": "video/eye_03.mp4"
+      },
+      {
+        "categoryId": 5,
+        "id": 5004,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/eye_04.webp",
+        "url": "video/eye_04.mp4"
+      },
+      {
+        "categoryId": 5,
+        "id": 5005,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/eye_05.webp",
+        "url": "video/eye_05.mp4"
+      },
+      {
+        "categoryId": 5,
+        "id": 5006,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/eye_06.webp",
+        "url": "video/eye_06.mp4"
+      },
+      {
+        "categoryId": 5,
+        "id": 5007,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/eye_07.webp",
+        "url": "video/eye_07.mp4"
+      },
+      {
+        "categoryId": 5,
+        "id": 5008,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/eye_08.webp",
+        "url": "video/eye_08.mp4"
+      }
+    ],
+    "6": [
+      {
+        "categoryId": 6,
+        "id": 6001,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/gundam_01.webp",
+        "url": "video/gundam_01.mp4"
+      },
+      {
+        "categoryId": 6,
+        "id": 6002,
+        "isDark": false,
+        "isPremium": false,
+        "thumb": "thumb/gundam_02.webp",
+        "url": "video/gundam_02.mp4"
+      },
+      {
+        "categoryId": 6,
+        "id": 6003,
+        "isDark": false,
+        "isPremium": false,
+        "thumb": "thumb/gundam_03.webp",
+        "url": "video/gundam_03.mp4"
+      },
+      {
+        "categoryId": 6,
+        "id": 6004,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/gundam_04.webp",
+        "url": "video/gundam_04.mp4"
+      }
+    ],
+    "7": [
+      {
+        "categoryId": 7,
+        "id": 7001,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/infinite_01.webp",
+        "url": "video/infinite_01.mp4"
+      },
+      {
+        "categoryId": 7,
+        "id": 7002,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/infinite_02.webp",
+        "url": "video/infinite_02.mp4"
+      },
+      {
+        "categoryId": 7,
+        "id": 7003,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/infinite_03.webp",
+        "url": "video/infinite_03.mp4"
+      },
+      {
+        "categoryId": 7,
+        "id": 7004,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/infinite_04.webp",
+        "url": "video/infinite_04.mp4"
+      },
+      {
+        "categoryId": 7,
+        "id": 7005,
+        "isDark": true,
+        "isPremium": true,
+        "thumb": "thumb/infinite_05.webp",
+        "url": "video/infinite_05.mp4"
+      },
+      {
+        "categoryId": 7,
+        "id": 7006,
+        "isDark": true,
+        "isPremium": true,
+        "thumb": "thumb/infinite_06.webp",
+        "url": "video/infinite_06.mp4"
+      },
+      {
+        "categoryId": 7,
+        "id": 7007,
+        "isDark": true,
+        "isPremium": true,
+        "thumb": "thumb/infinite_07.webp",
+        "url": "video/infinite_07.mp4"
+      }
+    ],
+    "8": [
+      {
+        "categoryId": 8,
+        "id": 8001,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/led_01.webp",
+        "url": "video/led_01.mp4"
+      },
+      {
+        "categoryId": 8,
+        "id": 8002,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/led_02.webp",
+        "url": "video/led_02.mp4"
+      },
+      {
+        "categoryId": 8,
+        "id": 8003,
+        "isDark": true,
+        "isPremium": true,
+        "thumb": "thumb/led_03.webp",
+        "url": "video/led_03.mp4"
+      }
+    ],
+    "9": [
+      {
+        "categoryId": 9,
+        "id": 9001,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/man_01.webp",
+        "url": "video/man_01.mp4"
+      },
+      {
+        "categoryId": 9,
+        "id": 9002,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/man_02.webp",
+        "url": "video/man_02.mp4"
+      },
+      {
+        "categoryId": 9,
+        "id": 9003,
+        "isDark": false,
+        "isPremium": true,
+        "thumb": "thumb/man_03.webp",
+        "url": "video/man_03.mp4"
+      },
+      {
+        "categoryId": 9,
+        "id": 9004,
+        "isDark": true,
+        "isPremium": true,
+        "thumb": "thumb/man_04.webp",
+        "url": "video/man_04.mp4"
+      },
+      {
+        "categoryId": 9,
+        "id": 9005,
+        "isDark": true,
+        "isPremium": true,
+        "thumb": "thumb/man_05.webp",
+        "url": "video/man_05.mp4"
+      },
+      {
+        "categoryId": 9,
+        "id": 9006,
+        "isDark": true,
+        "isPremium": true,
+        "thumb": "thumb/man_06.webp",
+        "url": "video/man_06.mp4"
+      },
+      {
+        "categoryId": 9,
+        "id": 9007,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/man_07.webp",
+        "url": "video/man_07.mp4"
+      },
+      {
+        "categoryId": 9,
+        "id": 9008,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/man_08.webp",
+        "url": "video/man_08.mp4"
+      }
+    ],
+    "10": [
+      {
+        "categoryId": 10,
+        "id": 10001,
+        "isDark": false,
+        "isPremium": false,
+        "thumb": "thumb/myth_01.webp",
+        "url": "video/myth_01.mp4"
+      },
+      {
+        "categoryId": 10,
+        "id": 10002,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/myth_02.webp",
+        "url": "video/myth_02.mp4"
+      }
+    ],
+    "11": [
+      {
+        "categoryId": 11,
+        "id": 11001,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/neon_01.webp",
+        "url": "video/neon_01.mp4"
+      },
+      {
+        "categoryId": 11,
+        "id": 11002,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/neon_02.webp",
+        "url": "video/neon_02.mp4"
+      },
+      {
+        "categoryId": 11,
+        "id": 11003,
+        "isDark": true,
+        "isPremium": true,
+        "thumb": "thumb/neon_03.webp",
+        "url": "video/neon_03.mp4"
+      },
+      {
+        "categoryId": 11,
+        "id": 11004,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/neon_04.webp",
+        "url": "video/neon_04.mp4"
+      },
+      {
+        "categoryId": 11,
+        "id": 11005,
+        "isDark": true,
+        "isPremium": true,
+        "thumb": "thumb/neon_05.webp",
+        "url": "video/neon_05.mp4"
+      },
+      {
+        "categoryId": 11,
+        "id": 11006,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/neon_06.webp",
+        "url": "video/neon_06.mp4"
+      },
+      {
+        "categoryId": 11,
+        "id": 11007,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/neon_07.webp",
+        "url": "video/neon_07.mp4"
+      },
+      {
+        "categoryId": 11,
+        "id": 11008,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/neon_08.webp",
+        "url": "video/neon_08.mp4"
+      },
+      {
+        "categoryId": 11,
+        "id": 11009,
+        "isDark": true,
+        "isPremium": true,
+        "thumb": "thumb/neon_09.webp",
+        "url": "video/neon_09.mp4"
+      },
+      {
+        "categoryId": 11,
+        "id": 11010,
+        "isDark": true,
+        "isPremium": true,
+        "thumb": "thumb/neon_10.webp",
+        "url": "video/neon_10.mp4"
+      }
+    ],
+    "12": [
+      {
+        "categoryId": 12,
+        "id": 12001,
+        "isDark": false,
+        "isPremium": false,
+        "thumb": "thumb/space_01.webp",
+        "url": "video/space_01.mp4"
+      },
+      {
+        "categoryId": 12,
+        "id": 12002,
+        "isDark": false,
+        "isPremium": false,
+        "thumb": "thumb/space_02.webp",
+        "url": "video/space_02.mp4"
+      }
+    ],
+    "13": [
+      {
+        "categoryId": 13,
+        "id": 13001,
+        "isDark": true,
+        "isPremium": true,
+        "thumb": "thumb/sport_01.webp",
+        "url": "video/sport_01.mp4"
+      },
+      {
+        "categoryId": 13,
+        "id": 13002,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/sport_02.webp",
+        "url": "video/sport_02.mp4"
+      },
+      {
+        "categoryId": 13,
+        "id": 13003,
+        "isDark": true,
+        "isPremium": true,
+        "thumb": "thumb/sport_03.webp",
+        "url": "video/sport_03.mp4"
+      },
+      {
+        "categoryId": 13,
+        "id": 13004,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/sport_04.webp",
+        "url": "video/sport_04.mp4"
+      },
+      {
+        "categoryId": 13,
+        "id": 13005,
+        "isDark": true,
+        "isPremium": true,
+        "thumb": "thumb/sport_05.webp",
+        "url": "video/sport_05.mp4"
+      },
+      {
+        "categoryId": 13,
+        "id": 13006,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/sport_06.webp",
+        "url": "video/sport_06.mp4"
+      }
+    ],
+    "14": [
+      {
+        "categoryId": 14,
+        "id": 14001,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/transformer_01.webp",
+        "url": "video/transformer_01.mp4"
+      },
+      {
+        "categoryId": 14,
+        "id": 14002,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/transformer_02.webp",
+        "url": "video/transformer_02.mp4"
+      },
+      {
+        "categoryId": 14,
+        "id": 14003,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/transformer_03.webp",
+        "url": "video/transformer_03.mp4"
+      },
+      {
+        "categoryId": 14,
+        "id": 14004,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/transformer_04.webp",
+        "url": "video/transformer_04.mp4"
+      },
+      {
+        "categoryId": 14,
+        "id": 14005,
+        "isDark": true,
+        "isPremium": true,
+        "thumb": "thumb/transformer_05.webp",
+        "url": "video/transformer_05.mp4"
+      },
+      {
+        "categoryId": 14,
+        "id": 14006,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/transformer_06.webp",
+        "url": "video/transformer_06.mp4"
+      },
+      {
+        "categoryId": 14,
+        "id": 14007,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/transformer_07.webp",
+        "url": "video/transformer_07.mp4"
+      }
+    ],
+    "15": [
+      {
+        "categoryId": 15,
+        "id": 15001,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/year_01.webp",
+        "url": "video/year_01.mp4"
+      },
+      {
+        "categoryId": 15,
+        "id": 15002,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/year_02.webp",
+        "url": "video/year_02.mp4"
+      },
+      {
+        "categoryId": 15,
+        "id": 15003,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/year_03.webp",
+        "url": "video/year_03.mp4"
+      },
+      {
+        "categoryId": 15,
+        "id": 15004,
+        "isDark": true,
+        "isPremium": false,
+        "thumb": "thumb/year_04.webp",
+        "url": "video/year_04.mp4"
+      }
+    ]
+  }
+}
