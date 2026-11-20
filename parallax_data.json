@@ -1,0 +1,22 @@
+{
+  "category_config": [
+    {
+      "id": 1,
+      "nameId": "Anime",
+      "sort": 0
+    }
+  ],
+  "wallpaper_config": {
+    "1": [
+      {
+        "categoryId": 1,
+        "id": 101001,
+        "isDark": true,
+        "isPremium": false,
+        "image": "https://livewallpaper-gamma.vercel.app/3d/anime/1/image.jpg",
+        "background": "https://livewallpaper-gamma.vercel.app/3d/anime/1/image_background.jpg",
+        "depth": "https://livewallpaper-gamma.vercel.app/3d/anime/1/image_depth.jpg"
+      }
+    ]
+  }
+}
