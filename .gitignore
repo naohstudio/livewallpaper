@@ -1,1 +1,5 @@
 .DS_Store
+parallax_input/
+parallax_work/
+.venv/
+__pycache__/

@@ -1,0 +1,10 @@
+# Cài torch bản CUDA TRƯỚC (xem README), sau đó: pip install -r requirements.txt
+transformers
+timm
+kornia
+einops
+spandrel
+opencv-python-headless
+numpy
+pillow
+requests

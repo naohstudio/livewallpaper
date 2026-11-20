@@ -56,3 +56,4 @@ python3 -c "import json,os;d=json.load(open('wallpaper_data.json'));p=lambda u:u
 - Own `category_config` list — parallax category ids are independent of video category ids.
 - `wallpaper_config["<categoryId>"]` entries: `{ categoryId, id, isDark, isPremium, image, background, depth }` (absolute URLs to the 3 files in `3d/<category>/<n>/`). No separate thumb.
 - Parallax `id` = `100000 + categoryId * 1000 + n` (e.g. 101001 = `3d/anime/1`) so it never collides with video ids.
+- New parallax wallpapers are normally produced by the batch pipeline in `tools/parallax/` (see its README), which runs on a separate Windows PC with an RTX 3060 + ComfyUI — not on this Mac. It assigns `<n>`/ids, auto-creates categories (matched by `slugify(nameId)` == folder name) and writes `parallax_data.json`. Its working dirs `parallax_input/` and `parallax_work/` are git- and Vercel-ignored; `tools/` is excluded from deploys via `.vercelignore`.

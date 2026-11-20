@@ -1,0 +1,52 @@
+{
+  "input_dir": "parallax_input",
+  "work_dir": "parallax_work",
+  "output_dir": "3d",
+  "data_file": "parallax_data.json",
+  "base_url": "https://livewallpaper-gamma.vercel.app",
+  "comfy_url": "http://127.0.0.1:8000",
+
+  "target_size": [1536, 2752],
+  "jpg_quality": 92,
+  "dark_threshold": 0.35,
+  "min_source_ratio": 0.25,
+
+  "seg_model": "ZhengPeng7/BiRefNet_HR",
+  "seg_size": 2048,
+  "depth_model": "depth-anything/Depth-Anything-V2-Large-hf",
+  "depth_input_size": 1022,
+  "depth_flip_tta": true,
+  "depth_blur": 1.5,
+
+  "upscale_models_dir": "~/Documents/ComfyUI/models/upscale_models",
+  "upscale_tile": 512,
+  "upscale_models": {
+    "default": "4x-UltraSharp.pth",
+    "anime": "4x-AnimeSharp.pth"
+  },
+
+  "mask_threshold": 0.3,
+  "mask_dilate": 0.025,
+  "mask_feather": 0.008,
+  "fill_context": 0.3,
+
+  "flux": {
+    "unet": "flux1-fill-dev-Q8_0.gguf",
+    "weight_dtype": "default",
+    "clip_l": "clip_l.safetensors",
+    "t5": "t5xxl_fp16.safetensors",
+    "vae": "ae.safetensors",
+    "steps": 30,
+    "guidance": 30,
+    "sampler": "euler",
+    "scheduler": "normal",
+    "megapixels": 1.5,
+    "upscale_model": "4x-UltraSharp.pth"
+  },
+
+  "prompts": {
+    "default": "empty background scenery, seamless continuation of the surrounding environment, nothing in the foreground, no people, no character, no text, same art style, same lighting and colors, highly detailed"
+  },
+
+  "category_names": {}
+}
