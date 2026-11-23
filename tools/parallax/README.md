@@ -26,6 +26,12 @@ Cấu hình mặc định là chất lượng cao nhất chạy được trên 3
 | `ae.safetensors` | `vae/` | HF `black-forest-labs/FLUX.1-Fill-dev` (cần đồng ý license trên HF) |
 | `4x-UltraSharp.pth`, `4x-AnimeSharp.pth` | `upscale_models/` | OpenModelDB |
 
+Có thể tải tự động toàn bộ bảng trên bằng script (chỉ cần Python, tải tiếp được khi bị ngắt, có kiểm tra SHA256):
+
+```bat
+python tools\parallax\download_models.py --models-dir "<thư mục models của ComfyUI>"
+```
+
 Custom node cần cài: **ComfyUI-GGUF** (city96), để load file `.gguf`. Cài qua Manager có sẵn trong ComfyUI Desktop (nút **Manager** → *Custom Nodes Manager* → tìm "ComfyUI-GGUF" → Install → khởi động lại app). Ngoài node này, workflow chỉ dùng node có sẵn của ComfyUI. Nên chạy thử Flux Fill một lần trong giao diện ComfyUI để chắc model load được.
 
 Vì sao chọn như vậy:
@@ -43,9 +49,12 @@ Cần Python 3.10–3.12 cài riêng trên máy (python.org).
 cd <repo>
 python -m venv .venv
 .venv\Scripts\activate
-pip install torch --index-url https://download.pytorch.org/whl/cu124
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130
 pip install -r tools\parallax\requirements.txt
+python -c "import torch; print(torch.__version__, torch.cuda.is_available())"
 ```
+
+Phải cài **cả torch và torchvision** từ index CUDA. Nếu chỉ cài torch thì `requirements.txt` sẽ kéo torchvision từ PyPI và ghi đè torch bằng bản chỉ chạy CPU. Dòng kiểm tra cuối phải in ra `True`. Bản `cu130` cần driver NVIDIA hỗ trợ CUDA 13 (xem `nvidia-smi`). Driver cũ hơn thì dùng `cu126`.
 
 Lần chạy đầu sẽ tự tải BiRefNet_HR và Depth-Anything-V2-Large từ HuggingFace.
 

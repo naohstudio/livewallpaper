@@ -77,6 +77,43 @@ def work_items(cfg, status=None):
     return [p for p in items if status is None or read_meta(p)["status"] == status]
 
 
+def bump_counter(path, key, current_max):
+    """Cấp số tiếp theo cho `key`, không bao giờ dùng lại số đã cấp (kể cả khi wallpaper bị xoá).
+
+    Số đã từng cấp được lưu trong file JSON `path` (commit vào git). Trả về số mới."""
+    data = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+    n = max(int(data.get(key, 0)), int(current_max)) + 1
+    data[key] = n
+    tmp = path.with_suffix(".tmp")
+    tmp.write_text(json.dumps(dict(sorted(data.items())), indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    tmp.replace(path)
+    return n
+
+
+def seed_counters(path, current):
+    """Ghi nhận các số đang dùng (dict key -> max) để sau khi xoá cũng không cấp lại."""
+    data = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+    merged = {k: max(int(data.get(k, 0)), int(v)) for k, v in current.items()}
+    if any(int(data.get(k, -1)) != v for k, v in merged.items()):
+        data.update(merged)
+        tmp = path.with_suffix(".tmp")
+        tmp.write_text(json.dumps(dict(sorted(data.items())), indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        tmp.replace(path)
+
+
+COUNTER_FILE = HERE / "counters.json"   # 3d/<slug>/<n> + id category parallax đã cấp
+
+
+def seed_parallax_counters(cfg):
+    data = load_data(cfg)
+    cur = {"category": max((c["id"] for c in data["category_config"]), default=0)}
+    if cfg["output_dir"].exists():
+        for d in cfg["output_dir"].iterdir():
+            if d.is_dir():
+                cur[d.name] = max((int(p.name) for p in d.iterdir() if p.is_dir() and p.name.isdigit()), default=0)
+    seed_counters(COUNTER_FILE, cur)
+
+
 def dilate(mask_u8, px):
     """Nới rộng mask nhị phân (uint8 0/255) thêm px pixel."""
     import cv2
@@ -463,11 +500,58 @@ def get_category(cfg, data, slug):
     for c in cats:
         if slugify(c["nameId"]) == slug:
             return c["id"]
-    cid = max((c["id"] for c in cats), default=0) + 1
+    cid = bump_counter(COUNTER_FILE, "category", max((c["id"] for c in cats), default=0))
     name = cfg.get("category_names", {}).get(slug, slug.replace("_", " ").title())
     cats.append({"id": cid, "nameId": name, "sort": max((c["sort"] for c in cats), default=-1) + 1})
     log(f"  tạo category mới: {cid} {name}")
     return cid
+
+
+def publish_item(cfg, data, item, is_premium=False, is_dark=None):
+    """Đưa một work item đã fill vào 3d/ + thêm entry vào data (chưa ghi file data). Trả về entry."""
+    meta = read_meta(item)
+    if meta["status"] != FILLED:
+        why = "đã publish rồi" if meta["status"] == PUBLISHED else "chưa fill xong"
+        raise RuntimeError(f"{item.name} {why} (status={meta['status']})")
+    slug = meta["category"]
+    cid = get_category(cfg, data, slug)
+    cat_dir = cfg["output_dir"] / slug
+    cat_dir.mkdir(parents=True, exist_ok=True)
+    used = max((int(p.name) for p in cat_dir.iterdir() if p.is_dir() and p.name.isdigit()), default=0)
+    n = bump_counter(COUNTER_FILE, slug, used)
+    if n >= 1000:
+        raise RuntimeError(f"category {slug} vượt quá 999 wallpaper, cần đổi quy ước id")
+    wid = 100000 + cid * 1000 + n
+    dest = cat_dir / str(n)
+    dest.mkdir()
+    q = cfg["jpg_quality"]
+    Image.open(item / "image.png").convert("RGB").save(dest / "image.jpg", quality=q, optimize=True)
+    Image.open(item / "background.png").convert("RGB").save(dest / "image_background.jpg", quality=q, optimize=True)
+    Image.open(item / "depth.png").convert("L").save(dest / "image_depth.jpg", quality=q, optimize=True)
+
+    base = cfg["base_url"].rstrip("/")
+    rel = f"{cfg['output_dir'].name}/{slug}/{n}"
+    entry = {
+        "categoryId": cid, "id": wid,
+        "isDark": meta["isDark"] if is_dark is None else bool(is_dark),
+        "isPremium": bool(is_premium),
+        "image": f"{base}/{rel}/image.jpg",
+        "background": f"{base}/{rel}/image_background.jpg",
+        "depth": f"{base}/{rel}/image_depth.jpg",
+    }
+    lst = data["wallpaper_config"].setdefault(str(cid), [])
+    lst.append(entry)
+    lst.sort(key=lambda e: e["id"])
+
+    meta.update(status=PUBLISHED, published=f"{slug}/{n}", id=wid)
+    write_meta(item, meta)
+    src = cfg["input_dir"] / meta["source"]
+    if src.exists():
+        done = cfg["input_dir"] / "_done" / slug
+        done.mkdir(parents=True, exist_ok=True)
+        shutil.move(str(src), str(done / src.name))
+    log(f"  {rel}  id={wid}  ({meta['source']})")
+    return entry
 
 
 def stage_publish(cfg):
@@ -476,44 +560,10 @@ def stage_publish(cfg):
         log("publish: không có item chờ")
         return
     data = load_data(cfg)
-    base = cfg["base_url"].rstrip("/")
     published = []
     for item in items:
-        meta = read_meta(item)
-        slug = meta["category"]
-        cid = get_category(cfg, data, slug)
-        cat_dir = cfg["output_dir"] / slug
-        cat_dir.mkdir(parents=True, exist_ok=True)
-        n = max((int(p.name) for p in cat_dir.iterdir() if p.is_dir() and p.name.isdigit()), default=0) + 1
-        if n >= 1000:
-            raise RuntimeError(f"category {slug} vượt quá 999 wallpaper, cần đổi quy ước id")
-        wid = 100000 + cid * 1000 + n
-        dest = cat_dir / str(n)
-        dest.mkdir()
-        q = cfg["jpg_quality"]
-        Image.open(item / "image.png").convert("RGB").save(dest / "image.jpg", quality=q, optimize=True)
-        Image.open(item / "background.png").convert("RGB").save(dest / "image_background.jpg", quality=q, optimize=True)
-        Image.open(item / "depth.png").convert("L").save(dest / "image_depth.jpg", quality=q, optimize=True)
-
-        rel = f"{cfg['output_dir'].name}/{slug}/{n}"
-        lst = data["wallpaper_config"].setdefault(str(cid), [])
-        lst.append({
-            "categoryId": cid, "id": wid, "isDark": meta["isDark"], "isPremium": False,
-            "image": f"{base}/{rel}/image.jpg",
-            "background": f"{base}/{rel}/image_background.jpg",
-            "depth": f"{base}/{rel}/image_depth.jpg",
-        })
-        lst.sort(key=lambda e: e["id"])
+        publish_item(cfg, data, item)
         save_data(cfg, data)
-
-        meta.update(status=PUBLISHED, published=f"{slug}/{n}", id=wid)
-        write_meta(item, meta)
-        src = cfg["input_dir"] / meta["source"]
-        if src.exists():
-            done = cfg["input_dir"] / "_done" / slug
-            done.mkdir(parents=True, exist_ok=True)
-            shutil.move(str(src), str(done / src.name))
-        log(f"  {rel}  id={wid}  ({meta['source']})")
         published.append(item)
     review_sheet(cfg, published)
 
@@ -542,7 +592,9 @@ def review_sheet(cfg, items):
 # ----------------------------------------------------------------------------- REFILL / STATUS
 
 def cmd_refill(cfg, target, seed, prompt):
-    match = [p for p in work_items(cfg) if read_meta(p).get("published") == target.strip("/")]
+    """target = <category>/<n> (đã publish) hoặc tên thư mục work item (chưa publish)."""
+    target = target.strip("/")
+    match = [p for p in work_items(cfg) if read_meta(p).get("published") == target or p.name == target]
     if not match:
         sys.exit(f"Không tìm thấy work item cho {target}")
     item = match[0]
@@ -551,11 +603,15 @@ def cmd_refill(cfg, target, seed, prompt):
         fill_item(cfg, comfy, item, seed=seed, prompt=prompt)
     finally:
         comfy.free()
-    dest = cfg["output_dir"] / target.strip("/")
-    Image.open(item / "background.png").convert("RGB").save(
-        dest / "image_background.jpg", quality=cfg["jpg_quality"], optimize=True)
-    review_sheet(cfg, [item])
-    log(f"Đã cập nhật {dest / 'image_background.jpg'}")
+    published = read_meta(item).get("published")
+    if published:
+        dest = cfg["output_dir"] / published
+        Image.open(item / "background.png").convert("RGB").save(
+            dest / "image_background.jpg", quality=cfg["jpg_quality"], optimize=True)
+        review_sheet(cfg, [item])
+        log(f"Đã cập nhật {dest / 'image_background.jpg'}")
+    else:
+        log(f"Đã fill lại {item.name}")
 
 
 def cmd_status(cfg):
@@ -573,7 +629,8 @@ def cmd_status(cfg):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("cmd", choices=["run", "prep", "fill", "publish", "refill", "status"])
-    ap.add_argument("target", nargs="?", help="cho refill: <category>/<n>, ví dụ anime/3")
+    ap.add_argument("target", nargs="?",
+                    help="cho refill: <category>/<n> (ví dụ anime/3) hoặc tên thư mục work item chưa publish")
     ap.add_argument("--seed", type=int)
     ap.add_argument("--prompt")
     a = ap.parse_args()
@@ -592,6 +649,7 @@ def main():
         if a.cmd in ("run", "fill"):
             stage_fill(cfg)
         if a.cmd in ("run", "publish"):
+            seed_parallax_counters(cfg)
             stage_publish(cfg)
 
 

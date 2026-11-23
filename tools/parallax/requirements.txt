@@ -8,3 +8,4 @@ opencv-python-headless
 numpy
 pillow
 requests
+flask              # web quản lý tools/admin

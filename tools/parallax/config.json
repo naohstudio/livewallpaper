@@ -4,7 +4,7 @@
   "output_dir": "3d",
   "data_file": "parallax_data.json",
   "base_url": "https://livewallpaper-gamma.vercel.app",
-  "comfy_url": "http://127.0.0.1:8000",
+  "comfy_url": "http://127.0.0.1:8188",
 
   "target_size": [1536, 2752],
   "jpg_quality": 92,
@@ -18,7 +18,7 @@
   "depth_flip_tta": true,
   "depth_blur": 1.5,
 
-  "upscale_models_dir": "~/Documents/ComfyUI/models/upscale_models",
+  "upscale_models_dir": "H:/Comfy-Desktop/ComfyUI-Shared/models/upscale_models",
   "upscale_tile": 512,
   "upscale_models": {
     "default": "4x-UltraSharp.pth",
