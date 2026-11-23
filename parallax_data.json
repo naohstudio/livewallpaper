@@ -16,6 +16,15 @@
         "image": "https://livewallpaper-gamma.vercel.app/3d/anime/1/image.jpg",
         "background": "https://livewallpaper-gamma.vercel.app/3d/anime/1/image_background.jpg",
         "depth": "https://livewallpaper-gamma.vercel.app/3d/anime/1/image_depth.jpg"
+      },
+      {
+        "categoryId": 1,
+        "id": 101002,
+        "isDark": false,
+        "isPremium": false,
+        "image": "https://livewallpaper-gamma.vercel.app/3d/anime/2/image.jpg",
+        "background": "https://livewallpaper-gamma.vercel.app/3d/anime/2/image_background.jpg",
+        "depth": "https://livewallpaper-gamma.vercel.app/3d/anime/2/image_depth.jpg"
       }
     ]
   }
